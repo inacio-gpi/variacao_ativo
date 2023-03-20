@@ -1,5 +1,5 @@
 import 'package:get/get_connect/connect.dart';
-import 'package:variacao_ativo/app/core/http/i_rest_client.dart';
+import 'package:variacao_ativo/app/core/core.dart';
 
 class RestClient extends GetConnect implements IRestClient {
   @override
@@ -15,8 +15,8 @@ class RestClient extends GetConnect implements IRestClient {
         headers: headers,
       );
       return response;
-    } catch (error) {
-      rethrow;
+    } catch (error, stackTrace) {
+      throw NetworkException(message: 'Erro ao obter dados da API', stackTrace: stackTrace);
     }
   }
 }

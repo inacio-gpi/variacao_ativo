@@ -36,8 +36,9 @@ class ActiveVariationController extends GetxController {
       (final l) {
         Get.snackbar(
           'Ooops...',
-          'Ocorreu algum erro ao buscar os dados do ativo',
-          backgroundColor: Colors.red,
+          l.message,
+          colorText: Colors.white,
+          backgroundColor: const Color(0xFFBA1B1B),
         );
       },
       (final r) {

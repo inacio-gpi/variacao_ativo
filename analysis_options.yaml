@@ -26,7 +26,6 @@ linter:
     await_only_futures: true
     always_declare_return_types: true
     comment_references: true
-    only_throw_errors: true
     prefer_final_in_for_each: true
     prefer_single_quotes: true
     avoid_shadowing_type_parameters: true

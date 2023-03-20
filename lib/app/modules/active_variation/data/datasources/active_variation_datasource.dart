@@ -12,11 +12,10 @@ class ActiveVariationDataSource extends IActiveVariationDataSource {
 
   @override
   Future<ActiveModel> getActiveVariation(final String activeName) async {
-    final response = await _restClient.clientGet('https://query2.finance.yahoo.com/v8/finance/chart/PETR4.SA');
-    // if (response.statusCode == 200) {
-    return ActiveModel.fromMap(response.body);
-    // } else {
-    //   throw response.data;
-    // }
+    final response = await _restClient.clientGet('https://query2.finance.yahoo.com/v8/finance/chart/$activeName');
+    if (response.body != null) {
+      return ActiveModel.fromMap(response.body);
+    }
+    throw DataSourceException(message: 'Erro no retorno da API');
   }
 }

@@ -6,7 +6,14 @@ class HomeController extends GetxController {
   final INavigationService _navigationService;
   HomeController(this._navigationService);
 
-  Future<void> goToActiveVariationPage() async {
-    await _navigationService.toNamed(ActiveVariationRoutes.activeVariation, arguments: 'testeParam');
+  final actives = [
+    'PETR4.SA',
+    'BBAS3.SA',
+    'MGLU3.SA',
+    'IRBR3.SA',
+  ];
+
+  Future<void> goToActiveVariationPage(final String active) async {
+    await _navigationService.toNamed(ActiveVariationRoutes.activeVariation, arguments: active);
   }
 }

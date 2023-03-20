@@ -6,6 +6,7 @@ import 'package:variacao_ativo/app/modules/active_variation/presenter/controller
 
 class ActiveVariationPage extends BasePage<ActiveVariationController> {
   const ActiveVariationPage({final Key? key}) : super(key: key);
+
   @override
   PreferredSizeWidget? appBar(final BuildContext context) => AppBar(
         centerTitle: true,
