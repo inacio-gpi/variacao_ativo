@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:variacao_ativo/app/modules/active_variation/active_variation.dart';
+import 'package:variacao_ativo/app/routes/navigation/navigation.dart';
 
 class ActiveVariationController extends GetxController {
   final IGetActiveVariationUseCase _getActiveVariationUseCase;
+  final INavigationService _navigationService;
 
-  ActiveVariationController(this._getActiveVariationUseCase);
+  ActiveVariationController(this._getActiveVariationUseCase, this._navigationService);
   late String activeParam;
   final Rx<ResultEntity> variationEntity = ResultModel.empty().obs;
   final openIndicators = <double>[].obs;
@@ -34,6 +36,7 @@ class ActiveVariationController extends GetxController {
     final result = await _getActiveVariationUseCase(param);
     result.fold(
       (final l) {
+        _navigationService.back();
         Get.snackbar(
           'Ooops...',
           l.message,

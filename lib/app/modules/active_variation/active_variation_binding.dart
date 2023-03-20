@@ -16,7 +16,7 @@ class ActiveVariationBinding extends Bindings {
         () => GetActiveVariationUseCase(Get.find()),
       )
       ..lazyPut<ActiveVariationController>(
-        () => ActiveVariationController(Get.find()),
+        () => ActiveVariationController(Get.find(), Get.find()),
       );
   }
 }
