@@ -1,6 +1,8 @@
-class ActiveEntity {
+import 'package:equatable/equatable.dart';
+
+class ActiveEntity extends Equatable {
   final ChartEntity chart;
-  ActiveEntity({
+  const ActiveEntity({
     required this.chart,
   });
 
@@ -10,31 +12,32 @@ class ActiveEntity {
       ActiveEntity(
         chart: chart ?? this.chart,
       );
+
+  @override
+  List<Object?> get props => [chart];
 }
 
-class ChartEntity {
+class ChartEntity extends Equatable {
   final List<ResultEntity> result;
-  // final Error error;
-  ChartEntity({
+  const ChartEntity({
     required this.result,
-    // required this.error,
   });
 
   ChartEntity copyWith({
     final List<ResultEntity>? result,
-    // final Error? error,
   }) =>
       ChartEntity(
         result: result ?? this.result,
-        // error: error ?? this.error,
       );
+  @override
+  List<Object?> get props => [result];
 }
 
-class ResultEntity {
+class ResultEntity extends Equatable {
   final MetaEntity meta;
   final List<int> timestamp;
   final IndicatorsEntity indicators;
-  ResultEntity({
+  const ResultEntity({
     required this.meta,
     required this.timestamp,
     required this.indicators,
@@ -50,9 +53,11 @@ class ResultEntity {
         timestamp: timestamp ?? this.timestamp,
         indicators: indicators ?? this.indicators,
       );
+  @override
+  List<Object?> get props => [meta, timestamp, indicators];
 }
 
-class MetaEntity {
+class MetaEntity extends Equatable {
   final String currency;
   final String symbol;
   final String exchangeName;
@@ -72,7 +77,7 @@ class MetaEntity {
   final String dataGranularity;
   final String range;
   final List<String> validRanges;
-  MetaEntity({
+  const MetaEntity({
     required this.currency,
     required this.symbol,
     required this.exchangeName,
@@ -136,13 +141,35 @@ class MetaEntity {
         range: range ?? this.range,
         validRanges: validRanges ?? this.validRanges,
       );
+  @override
+  List<Object?> get props => [
+        currency,
+        symbol,
+        exchangeName,
+        instrumentType,
+        firstTradeDate,
+        regularMarketTime,
+        gmtoffset,
+        timezone,
+        exchangeTimezoneName,
+        regularMarketPrice,
+        chartPreviousClose,
+        previousClose,
+        scale,
+        priceHint,
+        currentTradingPeriod,
+        tradingPeriods,
+        dataGranularity,
+        range,
+        validRanges,
+      ];
 }
 
-class CurrentTradingPeriodEntity {
+class CurrentTradingPeriodEntity extends Equatable {
   final PreEntity pre;
   final RegularEntity regular;
   final PostEntity post;
-  CurrentTradingPeriodEntity({
+  const CurrentTradingPeriodEntity({
     required this.pre,
     required this.regular,
     required this.post,
@@ -158,14 +185,16 @@ class CurrentTradingPeriodEntity {
         regular: regular ?? this.regular,
         post: post ?? this.post,
       );
+  @override
+  List<Object?> get props => [pre, regular, post];
 }
 
-class PreEntity {
+class PreEntity extends Equatable {
   final String timezone;
   final int end;
   final int start;
   final int gmtoffset;
-  PreEntity({
+  const PreEntity({
     required this.timezone,
     required this.end,
     required this.start,
@@ -184,14 +213,16 @@ class PreEntity {
         start: start ?? this.start,
         gmtoffset: gmtoffset ?? this.gmtoffset,
       );
+  @override
+  List<Object?> get props => [timezone, end, start, gmtoffset];
 }
 
-class RegularEntity {
+class RegularEntity extends Equatable {
   final String timezone;
   final int end;
   final int start;
   final int gmtoffset;
-  RegularEntity({
+  const RegularEntity({
     required this.timezone,
     required this.end,
     required this.start,
@@ -210,14 +241,16 @@ class RegularEntity {
         start: start ?? this.start,
         gmtoffset: gmtoffset ?? this.gmtoffset,
       );
+  @override
+  List<Object?> get props => [timezone, end, start, gmtoffset];
 }
 
-class PostEntity {
+class PostEntity extends Equatable {
   final String timezone;
   final int end;
   final int start;
   final int gmtoffset;
-  PostEntity({
+  const PostEntity({
     required this.timezone,
     required this.end,
     required this.start,
@@ -236,14 +269,16 @@ class PostEntity {
         start: start ?? this.start,
         gmtoffset: gmtoffset ?? this.gmtoffset,
       );
+  @override
+  List<Object?> get props => [timezone, end, start, gmtoffset];
 }
 
-class TradingPeriodsEntity {
+class TradingPeriodsEntity extends Equatable {
   final String timezone;
   final int end;
   final int start;
   final int gmtoffset;
-  TradingPeriodsEntity({
+  const TradingPeriodsEntity({
     required this.timezone,
     required this.end,
     required this.start,
@@ -262,11 +297,13 @@ class TradingPeriodsEntity {
         start: start ?? this.start,
         gmtoffset: gmtoffset ?? this.gmtoffset,
       );
+  @override
+  List<Object?> get props => [timezone, end, start, gmtoffset];
 }
 
-class IndicatorsEntity {
+class IndicatorsEntity extends Equatable {
   final List<QuoteEntity> quote;
-  IndicatorsEntity({
+  const IndicatorsEntity({
     required this.quote,
   });
 
@@ -276,15 +313,17 @@ class IndicatorsEntity {
       IndicatorsEntity(
         quote: quote ?? this.quote,
       );
+  @override
+  List<Object?> get props => [quote];
 }
 
-class QuoteEntity {
+class QuoteEntity extends Equatable {
   final List<double> open;
   final List<double> low;
   final List<double> high;
   final List<double> close;
   final List<int> volume;
-  QuoteEntity({
+  const QuoteEntity({
     required this.open,
     required this.low,
     required this.high,
@@ -306,4 +345,6 @@ class QuoteEntity {
         close: close ?? this.close,
         volume: volume ?? this.volume,
       );
+  @override
+  List<Object?> get props => [open, low, high, close, volume];
 }

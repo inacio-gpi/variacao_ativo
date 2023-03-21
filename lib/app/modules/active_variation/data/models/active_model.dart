@@ -6,13 +6,12 @@ import 'package:variacao_ativo/app/modules/active_variation/domain/entities/acti
 class ActiveModel extends ActiveEntity {
   @override
   final ChartModel chart;
-  ActiveModel({
+  const ActiveModel({
     required this.chart,
   }) : super(chart: chart);
 
-  Map<String, dynamic> toMap() => {
-        'chart': chart.toMap(),
-      };
+  Map<String, dynamic> toMap() => {'chart': chart.toMap()};
+
   factory ActiveModel.empty() => ActiveModel.fromMap(mapEmpty);
 
   factory ActiveModel.fromMap(final Map<String, dynamic> map) => ActiveModel(
@@ -27,7 +26,7 @@ class ActiveModel extends ActiveEntity {
 class ChartModel extends ChartEntity {
   @override
   final List<ResultModel> result;
-  ChartModel({
+  const ChartModel({
     required this.result,
   }) : super(result: result);
 
@@ -51,7 +50,7 @@ class ResultModel extends ResultEntity {
   final List<int> timestamp;
   @override
   final IndicatorsModel indicators;
-  ResultModel({
+  const ResultModel({
     required this.meta,
     required this.timestamp,
     required this.indicators,
@@ -115,7 +114,7 @@ class MetaModel extends MetaEntity {
   final String range;
   @override
   final List<String> validRanges;
-  MetaModel({
+  const MetaModel({
     required this.currency,
     required this.symbol,
     required this.exchangeName,
@@ -224,7 +223,7 @@ class CurrentTradingPeriodModel extends CurrentTradingPeriodEntity {
   final RegularModel regular;
   @override
   final PostModel post;
-  CurrentTradingPeriodModel({
+  const CurrentTradingPeriodModel({
     required this.pre,
     required this.regular,
     required this.post,
@@ -256,7 +255,7 @@ class PreModel extends PreEntity {
   final int start;
   @override
   final int gmtoffset;
-  PreModel({
+  const PreModel({
     required this.timezone,
     required this.end,
     required this.start,
@@ -305,7 +304,7 @@ class RegularModel extends RegularEntity {
   final int start;
   @override
   final int gmtoffset;
-  RegularModel({
+  const RegularModel({
     required this.timezone,
     required this.end,
     required this.start,
@@ -354,7 +353,7 @@ class PostModel extends PostEntity {
   final int start;
   @override
   final int gmtoffset;
-  PostModel({
+  const PostModel({
     required this.timezone,
     required this.end,
     required this.start,
@@ -389,7 +388,7 @@ class TradingPeriodsModel extends TradingPeriodsEntity {
   final int start;
   @override
   final int gmtoffset;
-  TradingPeriodsModel({
+  const TradingPeriodsModel({
     required this.timezone,
     required this.end,
     required this.start,
@@ -432,7 +431,7 @@ class TradingPeriodsModel extends TradingPeriodsEntity {
 class IndicatorsModel extends IndicatorsEntity {
   @override
   final List<QuoteModel> quote;
-  IndicatorsModel({
+  const IndicatorsModel({
     required this.quote,
   }) : super(quote: quote);
 
@@ -460,7 +459,7 @@ class QuoteModel extends QuoteEntity {
   final List<double> close;
   @override
   final List<int> volume;
-  QuoteModel({
+  const QuoteModel({
     required this.open,
     required this.low,
     required this.high,
