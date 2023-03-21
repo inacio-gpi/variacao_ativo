@@ -1,16 +1,27 @@
-# variacao_ativo
+# Variacao Ativo
 
-A new Flutter project.
+## :fire: Como usar
 
-## Getting Started
+- ### **Pré-requisitos**
 
-This project is a starting point for a Flutter application.
+  - É **necessário** possuir o **[Flutter](https://docs.flutter.dev/get-started/install)** instalado na máquina
+  - Foi utilizado a versão do flutter 3.7.7 para o desenvolvimento, porém o projeto deve rodar nas versões 3.7.2 pra cima, com o SDK 2.19.2 do dart
 
-A few resources to get you started if this is your first Flutter project:
+1. Faça um clone :
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```sh
+  $ git clone https://github.com/inacio-gpi/variacao_ativo.git
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+2. Executando a Aplicação:
+
+```sh
+  # navegue para a pasta do projeto
+  $ cd variacao_ativo
+
+  # baixe as dependências
+  $ flutter pub get
+
+  # com um emulador já configurado, é hora de rodar o projeto
+  $ flutter run
+```
